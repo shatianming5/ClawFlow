@@ -26,8 +26,10 @@ REQUIRED_FILES = [
     ".github/workflows/ci.yml",
     "scripts/verify_deliverables.py",
     "scripts/package_release.py",
+    "scripts/check_publish_readiness.py",
     "docs/openapi.json",
     "docs/api_reference.md",
+    "docs/github_publish_guide.md",
     "docs/delivery_checklist.md",
     "docs/defense_qa.md",
     "docs/comparison.md",
@@ -117,6 +119,7 @@ README_KEYWORDS = [
     "Evaluation Leaderboard",
     "Failure Recovery Report",
     "Developer Framework",
+    "GitHub Publish",
     "Why ClawFlow is not just demos",
 ]
 
@@ -200,6 +203,15 @@ def verify_tests() -> None:
     require(len(tests) >= 15, f"expected broad test suite, found {len(tests)} files")
 
 
+def verify_publish_readiness() -> None:
+    from scripts.check_publish_readiness import build_report
+
+    report = build_report()
+    require(report["status"] in {"ready", "needs_remote", "ready_with_warnings"}, "publish readiness has errors")
+    require(report["git_repository"], "publish readiness should run inside a git repository")
+    require(report["required_assets"], "publish readiness did not check required assets")
+
+
 def run_pytest() -> str:
     completed = subprocess.run(
         [sys.executable, "-m", "pytest", "-q"],
@@ -221,6 +233,7 @@ def main(run_tests: bool = False) -> dict:
         ("benchmark", verify_benchmark),
         ("applications", verify_applications),
         ("tests", verify_tests),
+        ("publish_readiness", verify_publish_readiness),
     ]
     passed: list[str] = []
     for name, fn in checks:

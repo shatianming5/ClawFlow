@@ -2,6 +2,58 @@
   "status": "ok",
   "recommendations": [
     {
+      "run_id": "run_2793af5a6b4e",
+      "application": "test_approval_deny",
+      "status": "failed",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "denied",
+      "recommended_action": "replay_and_rerun",
+      "command": "clawflow trace replay run_2793af5a6b4e",
+      "reason": "Run failed; inspect trace and checkpoint before rerun."
+    },
+    {
+      "run_id": "run_b86f3980be18",
+      "application": "test_metrics_pending",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "pending",
+      "recommended_action": "approve_or_deny",
+      "command": "clawflow approvals approve run_b86f3980be18",
+      "reason": "Run is paused at a human-in-the-loop approval boundary."
+    },
+    {
+      "run_id": "run_5244bb7ce2af",
+      "application": "test_approval_deny",
+      "status": "failed",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "denied",
+      "recommended_action": "replay_and_rerun",
+      "command": "clawflow trace replay run_5244bb7ce2af",
+      "reason": "Run failed; inspect trace and checkpoint before rerun."
+    },
+    {
+      "run_id": "run_3192edeb00c0",
+      "application": "test_metrics_pending",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "pending",
+      "recommended_action": "approve_or_deny",
+      "command": "clawflow approvals approve run_3192edeb00c0",
+      "reason": "Run is paused at a human-in-the-loop approval boundary."
+    },
+    {
       "run_id": "run_999930ef5867",
       "application": "test_approval_deny",
       "status": "failed",
@@ -314,6 +366,6 @@
       "reason": "Run is pending but no active approval row was found."
     }
   ],
-  "failure_event_count": 48,
+  "failure_event_count": 56,
   "checkpoint_dir": "outputs/checkpoints"
 }

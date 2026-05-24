@@ -20,6 +20,7 @@ This checklist is intended for course submission, challenge review, GitHub relea
 - [x] README, technical report, PPTX/PDF and speaker notes.
 - [x] Apache-2.0 license and community files.
 - [x] Docker, Makefile, CI and deliverable verification gate.
+- [x] Release archive, GitHub publish guide and local publish readiness checker.
 
 ## Verification Commands
 
@@ -33,7 +34,8 @@ python -m scripts.package_release
 ## Submission Notes
 
 - Use `README.md` as the GitHub landing page.
+- Run `make publish-check` before adding a remote, then `make publish-check-strict` after `origin` is configured.
+- Push with `git push -u origin main` once the GitHub repository URL is available.
 - Use `docs/technical_report.pdf` or `docs/technical_report.docx` as the formal report.
 - Use `slides/ClawFlow_presentation.pptx` for defense.
 - Use `outputs/benchmark_results.md`, `outputs/evaluation_leaderboard.md` and `outputs/failure_recovery_report.md` as experiment appendices.
-

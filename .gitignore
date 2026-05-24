@@ -17,6 +17,7 @@ outputs/test_file_tool.txt
 outputs/sample.temp
 outputs/outbox/
 outputs/calendar/
+outputs/publish_readiness.json
 
 # Template generator smoke-test artifacts.
 applications/generated_*/

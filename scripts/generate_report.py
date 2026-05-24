@@ -43,7 +43,7 @@ ClawFlow is a lightweight **Agent Runtime / AgentOS Kernel** prototype for build
 
 CI workflow: `.github/workflows/ci.yml`
 
-This repository is packaged for GitHub with Apache-2.0 licensing, issue templates, pull request template, CI workflow, Docker deployment, generated screenshots, benchmark artifacts, OpenAPI schema and complete report/PPT deliverables.
+This repository is packaged for GitHub with Apache-2.0 licensing, issue templates, pull request template, CI workflow, Docker deployment, generated screenshots, benchmark artifacts, OpenAPI schema, release archive, publish readiness checker and complete report/PPT deliverables.
 
 ## Why ClawFlow is not just demos
 
@@ -110,6 +110,7 @@ clawflow app rag
 clawflow benchmark
 make verify
 make release
+make publish-check
 clawflow serve
 ```
 
@@ -283,6 +284,24 @@ Generated files:
 - `outputs/release_manifest.md`
 
 The archive is built from tracked source and deliverable files while excluding local databases, trace logs, checkpoints, server logs and generated smoke-test templates.
+
+## GitHub Publish
+
+The repository has local git commits, CI configuration, Apache-2.0 licensing, community files, generated screenshots, benchmark artifacts, OpenAPI export, technical report and PPT. Before publishing, run:
+
+```bash
+make publish-check
+```
+
+After creating an empty GitHub repository and adding a writable remote, run:
+
+```bash
+git remote add origin <github-repo-url>
+make publish-check-strict
+git push -u origin main
+```
+
+If `origin` already exists, replace the add command with `git remote set-url origin <github-repo-url>`. The detailed publishing runbook is in `docs/github_publish_guide.md`. In the current local workspace, pushing is only blocked when `origin` is not configured or the account is not authenticated.
 
 ## Defense Materials
 
