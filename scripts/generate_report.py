@@ -39,6 +39,12 @@ ClawFlow is a lightweight **Agent Runtime / AgentOS Kernel** prototype for build
 
 ![Architecture](docs/assets/diagrams/architecture.png)
 
+## Repository Status
+
+CI workflow: `.github/workflows/ci.yml`
+
+This repository is packaged for GitHub with Apache-2.0 licensing, issue templates, pull request template, CI workflow, Docker deployment, generated screenshots, benchmark artifacts, OpenAPI schema and complete report/PPT deliverables.
+
 ## Why ClawFlow is not just demos
 
 - Example Applications are validation workloads for the framework, not the project body.
@@ -68,6 +74,7 @@ ClawFlow is a lightweight **Agent Runtime / AgentOS Kernel** prototype for build
 | Tool Usage Heatmap | Real `tool_call` trace aggregation for observability |
 | Evaluation Leaderboard | Scores applications from real benchmark rows |
 | Failure Recovery Report | Recommends resume/replay/approval actions from checkpoints and failed runs |
+| OpenAPI Export | `scripts/export_openapi.py` writes `docs/openapi.json` and `docs/api_reference.md` from FastAPI |
 | Plugin Registry | Manifest-driven plugin tools loaded into Tool Registry |
 | MCP-like Connector | Local email, calendar, search connectors with replaceable interface |
 | RAG Module | Document loader, chunker, keyword retriever, grounded answer |
@@ -145,6 +152,17 @@ curl -X POST http://127.0.0.1:8000/templates/app \\
   -H 'Content-Type: application/json' \\
   -d '{{"name":"generated_ops_agent","task":"请基于 Runtime 生成运营助手。"}}'
 ```
+
+The OpenAPI schema can be regenerated with:
+
+```bash
+make api-docs
+```
+
+Generated files:
+
+- `docs/openapi.json`
+- `docs/api_reference.md`
 
 ## Web UI
 
@@ -279,6 +297,16 @@ make serve
 
 The Docker setup mounts `outputs/` and `docs/assets/` so runtime state, benchmark artifacts and screenshots remain visible outside the container.
 
+## CI
+
+GitHub Actions workflow `.github/workflows/ci.yml` runs on push and pull request:
+
+- install ClawFlow with `python -m pip install -e .`
+- run `python -m pytest -q`
+- run the real benchmark pipeline
+- export OpenAPI schema
+- verify benchmark, evaluation, recovery and API artifacts exist
+
 ## Configuration
 
 `config.yaml` controls LLM mode, storage path, policy mapping, shell allowlist, web server and benchmark tasks. `.env.example` documents OpenAI-compatible provider settings:
@@ -314,7 +342,7 @@ def generate_support_docs() -> None:
     docs = {
         "docs/architecture.md": "# Architecture\n\nClawFlow separates Gateway, Runtime Kernel, Planner, Executor, Tool Registry, Governance, Memory, Trace, Checkpoint, Plugins, RAG and Applications.\n\n![Architecture](assets/diagrams/architecture.png)\n",
         "docs/design_philosophy.md": "# Design Philosophy\n\nClawFlow moves from Prompt Demo to Agent Runtime by treating agent execution as a governed, observable, recoverable state lifecycle.\n",
-        "docs/api_reference.md": "# API Reference\n\n- `GET /health`\n- `POST /run`\n- `GET /runs`\n- `GET /runs/{run_id}/trace`\n- `POST /runs/{run_id}/resume`\n- `GET /tools`\n- `GET /memory`\n- `GET /plugins`\n- `GET /benchmark`\n- `GET /audit`\n- `GET /governance`\n",
+        "docs/api_reference.md": "# API Reference\n\nRun `make api-docs` to regenerate this file from the live FastAPI OpenAPI schema.\n",
         "docs/user_manual.md": "# User Manual\n\nUse `clawflow app research`, `clawflow app personal`, `clawflow app safe`, `clawflow app multi-agent`, `clawflow app rag`, and `clawflow serve`.\n",
         "docs/developer_guide.md": "# Developer Guide\n\nTo add a tool, subclass `BaseTool`, define `name`, `description`, `risk_level`, schemas and `run(args, context)`, then register it in `ToolRegistry` or a plugin manifest. To add an application, call `AgentRuntime().run(task, application=...)`.\n",
         "docs/performance_and_scalability.md": "# Performance and Scalability\n\nThe local version uses SQLite, JSONL and file checkpoints. Interfaces are designed for production replacements: distributed queue, vector DB, cloud trace backend and external connectors.\n",

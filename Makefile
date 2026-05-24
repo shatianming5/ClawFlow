@@ -1,4 +1,4 @@
-.PHONY: install test app serve benchmark screenshots report ppt diagrams all
+.PHONY: install test app serve benchmark screenshots report ppt diagrams api-docs all
 
 install:
 	python -m pip install -e .
@@ -21,11 +21,13 @@ screenshots:
 diagrams:
 	python -m scripts.generate_diagrams
 
+api-docs:
+	python -m scripts.export_openapi
+
 report:
 	python -m scripts.generate_report
 
 ppt:
 	python -m scripts.generate_ppt
 
-all: app benchmark diagrams screenshots report ppt test
-
+all: app benchmark diagrams screenshots report ppt api-docs test

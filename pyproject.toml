@@ -30,3 +30,14 @@ include = ["clawflow*", "applications*", "scripts*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[tool.clawflow]
+artifact_paths = [
+  "README.md",
+  "docs/technical_report.md",
+  "docs/technical_report.docx",
+  "slides/ClawFlow_presentation.pptx",
+  "outputs/benchmark_results.json",
+  "outputs/evaluation_leaderboard.json",
+  "outputs/failure_recovery_report.md",
+]

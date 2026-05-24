@@ -1,0 +1,43 @@
+name: ClawFlow CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-and-artifacts:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        run: python -m pip install -e .
+
+      - name: Run tests
+        run: python -m pytest -q
+
+      - name: Run benchmark
+        run: python -m scripts.run_benchmark
+
+      - name: Export OpenAPI schema
+        run: python -m scripts.export_openapi
+
+      - name: Verify generated artifact files
+        run: |
+          test -f outputs/benchmark_results.json
+          test -f outputs/evaluation_leaderboard.json
+          test -f outputs/failure_recovery_report.md
+          test -f docs/openapi.json
+

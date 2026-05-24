@@ -4,18 +4,18 @@ ClawFlow is structured as a lightweight Agent Runtime / AgentOS infrastructure p
 The current workspace contains 500 sampled files across clawflow, applications, docs, scripts, tests.
 
 ## File type distribution
-- `.json`: 382
-- `.md`: 47
-- `.py`: 41
+- `.json`: 410
+- `.md`: 33
+- `.py`: 31
 - `.txt`: 6
-- `.png`: 5
-- `[no_ext]`: 4
+- `[no_ext]`: 5
 - `.pdf`: 2
 - `.docx`: 1
 - `.example`: 1
 - `.jsonl`: 1
 - `.log`: 1
 - `.pid`: 1
+- `.pptx`: 1
 
 ## README signal
 # ClawFlow
@@ -28,13 +28,16 @@ ClawFlow is a lightweight **Agent Runtime / AgentOS Kernel** prototype for build
 
 ![Architecture](docs/assets/diagrams/architecture.png)
 
+## Repository Status
+
+CI workflow: `.github/workflows/ci.yml`
+
+This repository is packaged for GitHub with Apache-2.0 licensing, issue templates, pull request template, CI workflow, Docker deployment, generated screenshots, benchmark artifacts, OpenAPI schema and complete report/PPT deliverables.
+
 ## Why ClawFlow is not just demos
 
 - Example Applications are validation workloads for the framework, not the project body.
-- Every application goes through the same `AgentRuntime`, Planner, Executor, Tool Registry, Memory Layer, Trace Store, Checkpoint Store and Permission Governance path.
-- Developers can use these applications as templates to build their own agent applications.
-- ClawFlow's core is **Agent Runtime / AgentOS Infrastructure**.
-- The implementation uses 
+- Every application goes through the same `AgentRunt
 
 ## Framework capability mapping
 - Runtime: planner, executor, tool calling, checkpoint, resume.
