@@ -2,9 +2,9 @@
 
 - Artifact: `dist/clawflow_release.zip`
 - Submission package: `dist/ClawFlow_submission_package.zip`
-- Included files: 240
-- Archive bytes: 5697906
-- Submission bytes: 5697906
+- Included files: 241
+- Archive bytes: 5717416
+- Submission bytes: 5717416
 
 ## Entrypoints
 - `clawflow.gateway.cli:main`

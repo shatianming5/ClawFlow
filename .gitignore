@@ -24,3 +24,5 @@ outputs/publish_readiness.json
 # Template generator smoke-test artifacts.
 applications/generated_*/
 clawflow/tools/generated/
+clawflow/connectors/generated/
+outputs/connectors/

@@ -352,7 +352,7 @@ def tool_usage_page() -> str:
 
 
 def template_generator_page(message: str = "") -> str:
-    body = header("Application & Tool Template Generator", "Generate Runtime-backed application and BaseTool scaffolds. Generated applications use ClawFlowApp, not isolated demo scripts.")
+    body = header("Application, Tool & Connector Template Generator", "Generate Runtime-backed application, BaseTool and MCP-like Connector scaffolds. Generated artifacts use real local persistence boundaries, not isolated demo scripts.")
     if message:
         body += f"<div class='card'>{html.escape(message)}</div>"
     body += """
@@ -373,15 +373,27 @@ def template_generator_page(message: str = "") -> str:
           <button type="submit">Generate Tool</button>
         </form>
       </div>
+      <div class="card">
+        <h3>Connector Template</h3>
+        <form method="post" action="/template-generator/connector">
+          <input name="name" value="enterprise_ticket_connector">
+          <input name="operation" value="sync_ticket">
+          <button type="submit">Generate Connector</button>
+        </form>
+      </div>
     </div>
     """
     generated = sorted(Path("applications").glob("generated_*"), key=lambda p: p.stat().st_mtime if p.exists() else 0, reverse=True)
     generated_tools = sorted(Path("clawflow/tools/generated").glob("*_tool.py")) if Path("clawflow/tools/generated").exists() else []
+    generated_connectors = sorted(Path("clawflow/connectors/generated").glob("*.py")) if Path("clawflow/connectors/generated").exists() else []
     body += "<h3>Generated Artifacts</h3><table><tr><th>Type</th><th>Path</th></tr>"
     for path in generated[:20]:
         body += f"<tr><td>Application</td><td><code>{html.escape(str(path))}</code></td></tr>"
     for path in generated_tools[:20]:
         body += f"<tr><td>Tool</td><td><code>{html.escape(str(path))}</code></td></tr>"
+    for path in generated_connectors[:20]:
+        if path.name != "__init__.py":
+            body += f"<tr><td>Connector</td><td><code>{html.escape(str(path))}</code></td></tr>"
     body += "</table>"
     return layout("Templates", body)
 

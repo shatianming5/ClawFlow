@@ -22,7 +22,7 @@
     @media (max-width:800px){ .shell{grid-template-columns:1fr;} nav{height:auto;position:relative;border-right:0;border-bottom:1px solid var(--line);} }
     </style></head>
     <body><div class="shell"><nav><h1>ClawFlow</h1><p>Agent Runtime · AgentOS Kernel · Governance · Trace Replay</p><a href="/dashboard">Home</a><a href="/run-agent">Run Agent</a><a href="/runs-page">Runs</a><a href="/trace-timeline">Trace Timeline</a><a href="/memory-browser">Memory</a><a href="/tools-page">Tools</a><a href="/plugins-page">Plugins</a><a href="/applications-page">Applications</a><a href="/benchmark-page">Benchmark</a><a href="/evaluation-leaderboard">Evaluation</a><a href="/governance-page">Governance</a><a href="/approvals-page">Approvals</a><a href="/audit-log">Audit Log</a><a href="/prompts-page">Prompts</a><a href="/cost-page">Cost</a><a href="/failure-analysis">Failures</a><a href="/failure-recovery">Recovery</a><a href="/tool-usage">Tool Heatmap</a><a href="/template-generator">Templates</a><a href="/workflow-graph">Workflow Graph</a><a href="/multi-agent-page">Multi-agent</a><a href="/rag-page">RAG</a><a href="/roadmap">Roadmap</a></nav>
-    <main><div class="top"><div><h2>Trace Timeline</h2><div class="subtitle">Replayable step-by-step events: plan, permission, tool call, checkpoint, memory update, final answer.</div></div></div><p>Run: <code>run_86be5d989bc0</code></p><div class='timeline'><div class='event'><strong>run_started</strong> <span class='pill'>run</span><pre>{
+    <main><div class="top"><div><h2>Trace Timeline</h2><div class="subtitle">Replayable step-by-step events: plan, permission, tool call, checkpoint, memory update, final answer.</div></div></div><p>Run: <code>run_96f633056260</code></p><div class='timeline'><div class='event'><strong>run_started</strong> <span class='pill'>run</span><pre>{
   &quot;user_input&quot;: &quot;请运行插件工具并展示插件注册能力。&quot;,
   &quot;application&quot;: &quot;benchmark_plugin&quot;
 }</pre></div><div class='event'><strong>plan_created</strong> <span class='pill'>run</span><pre>{
@@ -135,9 +135,9 @@
   &quot;risk_level&quot;: &quot;low&quot;,
   &quot;decision&quot;: &quot;allow&quot;,
   &quot;reason&quot;: &quot;default policy maps low risk to allow&quot;,
-  &quot;run_id&quot;: &quot;run_86be5d989bc0&quot;,
+  &quot;run_id&quot;: &quot;run_96f633056260&quot;,
   &quot;step_id&quot;: &quot;s1&quot;,
-  &quot;created_at&quot;: 1779625405.656388
+  &quot;created_at&quot;: 1779640873.624883
 }</pre></div><div class='event'><strong>tool_call</strong> <span class='pill'>s1</span><pre>{
   &quot;tool&quot;: &quot;list_files&quot;,
   &quot;args&quot;: {
@@ -150,6 +150,7 @@
     &quot;root&quot;: &quot;/Users/tommy/Downloads/clawagent_sysu&quot;,
     &quot;files&quot;: [
       &quot;.env.example&quot;,
+      &quot;.gitignore&quot;,
       &quot;CHANGELOG.md&quot;,
       &quot;CODE_OF_CONDUCT.md&quot;,
       &quot;CONTRIBUTING.md&quot;,
@@ -163,6 +164,9 @@
       &quot;config.yaml&quot;,
       &quot;docker-compose.yml&quot;,
       &quot;pyproject.toml&quot;,
+      &quot;uv.lock&quot;,
+      &quot;dist/ClawFlow_submission_package.zip&quot;,
+      &quot;dist/clawflow_release.zip&quot;,
       &quot;tests/test_api.py&quot;,
       &quot;tests/test_applications.py&quot;,
       &quot;tests/test_approvals.py&quot;,
@@ -174,15 +178,13 @@
       &quot;tests/test_policy.py&quot;,
       &quot;tests/test_policy_metrics.py&quot;,
       &quot;tests/test_prompts_metrics.py&quot;,
-      &quot;tests/test_providers.py&quot;,
-      &quot;tests/test_rag.py&quot;,
-      &quot;tests/test_runtime.py&quot;,
-      &quot;tests/test_template_ge</pre></div><div class='event'><strong>step_completed</strong> <span class='pill'>s1</span><pre>{
+  </pre></div><div class='event'><strong>step_completed</strong> <span class='pill'>s1</span><pre>{
   &quot;ok&quot;: true,
   &quot;data&quot;: {
     &quot;root&quot;: &quot;/Users/tommy/Downloads/clawagent_sysu&quot;,
     &quot;files&quot;: [
       &quot;.env.example&quot;,
+      &quot;.gitignore&quot;,
       &quot;CHANGELOG.md&quot;,
       &quot;CODE_OF_CONDUCT.md&quot;,
       &quot;CONTRIBUTING.md&quot;,
@@ -196,6 +198,9 @@
       &quot;config.yaml&quot;,
       &quot;docker-compose.yml&quot;,
       &quot;pyproject.toml&quot;,
+      &quot;uv.lock&quot;,
+      &quot;dist/ClawFlow_submission_package.zip&quot;,
+      &quot;dist/clawflow_release.zip&quot;,
       &quot;tests/test_api.py&quot;,
       &quot;tests/test_applications.py&quot;,
       &quot;tests/test_approvals.py&quot;,
@@ -207,10 +212,7 @@
       &quot;tests/test_policy.py&quot;,
       &quot;tests/test_policy_metrics.py&quot;,
       &quot;tests/test_prompts_metrics.py&quot;,
-      &quot;tests/test_providers.py&quot;,
-      &quot;tests/test_rag.py&quot;,
-      &quot;tests/test_runtime.py&quot;,
-      &quot;tests/test_template_ge</pre></div><div class='event'><strong>checkpoint_saved</strong> <span class='pill'>run</span><pre>{
+  </pre></div><div class='event'><strong>checkpoint_saved</strong> <span class='pill'>run</span><pre>{
   &quot;completed_steps&quot;: [
     &quot;s1&quot;
   ]
@@ -228,19 +230,19 @@
   &quot;risk_level&quot;: &quot;low&quot;,
   &quot;decision&quot;: &quot;allow&quot;,
   &quot;reason&quot;: &quot;default policy maps low risk to allow&quot;,
-  &quot;run_id&quot;: &quot;run_86be5d989bc0&quot;,
+  &quot;run_id&quot;: &quot;run_96f633056260&quot;,
   &quot;step_id&quot;: &quot;s2&quot;,
-  &quot;created_at&quot;: 1779625405.668719
+  &quot;created_at&quot;: 1779640873.6336799
 }</pre></div><div class='event'><strong>tool_call</strong> <span class='pill'>s2</span><pre>{
   &quot;tool&quot;: &quot;plugin_workspace_stats&quot;,
   &quot;args&quot;: {}
 }</pre></div><div class='event'><strong>tool_result</strong> <span class='pill'>s2</span><pre>{
   &quot;ok&quot;: true,
   &quot;data&quot;: {
-    &quot;file_count&quot;: 654,
-    &quot;python_files&quot;: 98,
-    &quot;markdown_files&quot;: 48,
-    &quot;generated_at&quot;: 1779625405.682358
+    &quot;file_count&quot;: 3299,
+    &quot;python_files&quot;: 1465,
+    &quot;markdown_files&quot;: 63,
+    &quot;generated_at&quot;: 1779640873.7037609
   },
   &quot;error&quot;: &quot;&quot;,
   &quot;artifacts&quot;: [
@@ -250,10 +252,10 @@
 }</pre></div><div class='event'><strong>step_completed</strong> <span class='pill'>s2</span><pre>{
   &quot;ok&quot;: true,
   &quot;data&quot;: {
-    &quot;file_count&quot;: 654,
-    &quot;python_files&quot;: 98,
-    &quot;markdown_files&quot;: 48,
-    &quot;generated_at&quot;: 1779625405.682358
+    &quot;file_count&quot;: 3299,
+    &quot;python_files&quot;: 1465,
+    &quot;markdown_files&quot;: 63,
+    &quot;generated_at&quot;: 1779640873.7037609
   },
   &quot;error&quot;: &quot;&quot;,
   &quot;artifacts&quot;: [
@@ -281,9 +283,9 @@
   &quot;risk_level&quot;: &quot;low&quot;,
   &quot;decision&quot;: &quot;allow&quot;,
   &quot;reason&quot;: &quot;default policy maps low risk to allow&quot;,
-  &quot;run_id&quot;: &quot;run_86be5d989bc0&quot;,
+  &quot;run_id&quot;: &quot;run_96f633056260&quot;,
   &quot;step_id&quot;: &quot;s3&quot;,
-  &quot;created_at&quot;: 1779625405.687239
+  &quot;created_at&quot;: 1779640873.707681
 }</pre></div><div class='event'><strong>tool_call</strong> <span class='pill'>s3</span><pre>{
   &quot;tool&quot;: &quot;plugin_echo&quot;,
   &quot;args&quot;: {

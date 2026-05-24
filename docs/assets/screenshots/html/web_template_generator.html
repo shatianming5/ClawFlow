@@ -22,7 +22,7 @@
     @media (max-width:800px){ .shell{grid-template-columns:1fr;} nav{height:auto;position:relative;border-right:0;border-bottom:1px solid var(--line);} }
     </style></head>
     <body><div class="shell"><nav><h1>ClawFlow</h1><p>Agent Runtime · AgentOS Kernel · Governance · Trace Replay</p><a href="/dashboard">Home</a><a href="/run-agent">Run Agent</a><a href="/runs-page">Runs</a><a href="/trace-timeline">Trace Timeline</a><a href="/memory-browser">Memory</a><a href="/tools-page">Tools</a><a href="/plugins-page">Plugins</a><a href="/applications-page">Applications</a><a href="/benchmark-page">Benchmark</a><a href="/evaluation-leaderboard">Evaluation</a><a href="/governance-page">Governance</a><a href="/approvals-page">Approvals</a><a href="/audit-log">Audit Log</a><a href="/prompts-page">Prompts</a><a href="/cost-page">Cost</a><a href="/failure-analysis">Failures</a><a href="/failure-recovery">Recovery</a><a href="/tool-usage">Tool Heatmap</a><a href="/template-generator">Templates</a><a href="/workflow-graph">Workflow Graph</a><a href="/multi-agent-page">Multi-agent</a><a href="/rag-page">RAG</a><a href="/roadmap">Roadmap</a></nav>
-    <main><div class="top"><div><h2>Application &amp; Tool Template Generator</h2><div class="subtitle">Generate Runtime-backed application and BaseTool scaffolds. Generated applications use ClawFlowApp, not isolated demo scripts.</div></div></div>
+    <main><div class="top"><div><h2>Application, Tool &amp; Connector Template Generator</h2><div class="subtitle">Generate Runtime-backed application, BaseTool and MCP-like Connector scaffolds. Generated artifacts use real local persistence boundaries, not isolated demo scripts.</div></div></div>
     <div class="grid">
       <div class="card">
         <h3>Application Template</h3>
@@ -40,6 +40,14 @@
           <button type="submit">Generate Tool</button>
         </form>
       </div>
+      <div class="card">
+        <h3>Connector Template</h3>
+        <form method="post" action="/template-generator/connector">
+          <input name="name" value="enterprise_ticket_connector">
+          <input name="operation" value="sync_ticket">
+          <button type="submit">Generate Connector</button>
+        </form>
+      </div>
     </div>
-    <h3>Generated Artifacts</h3><table><tr><th>Type</th><th>Path</th></tr><tr><td>Application</td><td><code>applications/generated_pytest_api_app</code></td></tr><tr><td>Tool</td><td><code>clawflow/tools/generated/generated_pytest_api_tool_tool.py</code></td></tr></table></main></div></body></html>
+    <h3>Generated Artifacts</h3><table><tr><th>Type</th><th>Path</th></tr><tr><td>Application</td><td><code>applications/generated_pytest_api_app</code></td></tr><tr><td>Tool</td><td><code>clawflow/tools/generated/generated_pytest_api_tool_tool.py</code></td></tr><tr><td>Connector</td><td><code>clawflow/connectors/generated/generated_pytest_api_connector.py</code></td></tr></table></main></div></body></html>
     

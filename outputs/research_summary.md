@@ -4,18 +4,18 @@ ClawFlow is structured as a lightweight Agent Runtime / AgentOS infrastructure p
 The current workspace contains 500 sampled files across clawflow, applications, docs, scripts, tests.
 
 ## File type distribution
-- `.json`: 396
+- `.json`: 398
 - `.md`: 39
-- `.py`: 36
+- `.py`: 37
 - `.txt`: 6
 - `[no_ext]`: 5
 - `.pdf`: 2
 - `.zip`: 2
 - `.docx`: 1
 - `.example`: 1
-- `.jsonl`: 1
 - `.lock`: 1
-- `.log`: 1
+- `.pptx`: 1
+- `.ps1`: 1
 
 ## README signal
 # ClawFlow

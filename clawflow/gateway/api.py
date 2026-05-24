@@ -15,6 +15,7 @@ from clawflow.core.runtime import AgentRuntime
 from clawflow.gateway import web
 from clawflow.observability.metrics import MetricsStore
 from scripts.create_application_template import create_application
+from scripts.create_connector_template import create_connector
 from scripts.create_tool_template import create_tool
 
 
@@ -215,6 +216,16 @@ async def template_tool(payload: dict) -> dict:
     return {"path": str(path)}
 
 
+@app.post("/templates/connector")
+async def template_connector(payload: dict) -> dict:
+    path = create_connector(
+        payload.get("name", "generated_connector"),
+        payload.get("operation", "sync"),
+        Path("clawflow/connectors/generated"),
+    )
+    return {"path": str(path)}
+
+
 @app.get("/", response_class=HTMLResponse)
 @app.get("/dashboard", response_class=HTMLResponse)
 def dashboard() -> str:
@@ -393,6 +404,20 @@ async def template_generator_tool_html(request: Request) -> str:
     form = parse_qs(raw)
     path = create_tool(form.get("name", ["generated_tool"])[0], form.get("risk", ["low"])[0], Path("clawflow/tools/generated"))
     return web.template_generator_page(f"Generated tool template at {path}")
+
+
+@app.post("/template-generator/connector", response_class=HTMLResponse)
+async def template_generator_connector_html(request: Request) -> str:
+    from urllib.parse import parse_qs
+
+    raw = (await request.body()).decode("utf-8")
+    form = parse_qs(raw)
+    path = create_connector(
+        form.get("name", ["generated_connector"])[0],
+        form.get("operation", ["sync"])[0],
+        Path("clawflow/connectors/generated"),
+    )
+    return web.template_generator_page(f"Generated connector template at {path}")
 
 
 @app.get("/audit-log", response_class=HTMLResponse)

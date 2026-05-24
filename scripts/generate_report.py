@@ -83,10 +83,11 @@ This repository is packaged for GitHub with Apache-2.0 licensing, issue template
 | Submission Package Check | `scripts/verify_submission_package.py` verifies ZIP contents for course/challenge upload |
 | Plugin Registry | Manifest-driven plugin tools loaded into Tool Registry |
 | MCP-like Connector | Local email, calendar, search connectors with replaceable interface |
+| Connector Template Generator | `clawflow generate connector ...`, `/templates/connector` and Web templates create MCP-like local JSONL adapters with production backend extension points |
 | RAG Module | Document loader, chunker, keyword retriever, grounded answer |
 | Multi-agent Collaboration | ManagerAgent, ResearchAgent, ToolAgent, CriticAgent, MemoryAgent, ReportAgent, SlideAgent, GovernanceAgent |
 | Benchmark & Evaluation | Real Runtime tasks, latency, success rate, tool calls and trace events |
-| Developer Templates | `clawflow generate app ...` and `clawflow generate tool ...` produce Runtime-backed scaffolds |
+| Developer Templates | `clawflow generate app ...`, `clawflow generate tool ...` and `clawflow generate connector ...` produce Runtime-backed application, tool and connector scaffolds |
 
 ## Architecture
 
@@ -146,6 +147,7 @@ clawflow metrics failures
 clawflow policy set high ask --reason "Keep destructive tools approval-gated"
 clawflow generate app knowledge_ops --task "请基于 ClawFlow Runtime 构建知识运营助手。"
 clawflow generate tool local_crm_lookup --risk medium
+clawflow generate connector enterprise_ticket_connector --operation sync_ticket
 ```
 
 ## API
@@ -161,6 +163,9 @@ curl http://127.0.0.1:8000/metrics/tool-usage
 curl -X POST http://127.0.0.1:8000/templates/app \\
   -H 'Content-Type: application/json' \\
   -d '{{"name":"generated_ops_agent","task":"请基于 Runtime 生成运营助手。"}}'
+curl -X POST http://127.0.0.1:8000/templates/connector \\
+  -H 'Content-Type: application/json' \\
+  -d '{{"name":"enterprise_ticket_connector","operation":"sync_ticket"}}'
 ```
 
 The OpenAPI schema can be regenerated with:
@@ -195,7 +200,7 @@ The Web Dashboard reads real persisted state instead of static page data:
 - `/failure-analysis`: failed and pending run analysis.
 - `/failure-recovery`: checkpoint-backed recovery recommendations.
 - `/tool-usage`: tool usage heatmap from trace events.
-- `/template-generator`: application/tool scaffold generator.
+- `/template-generator`: application/tool/connector scaffold generator.
 
 ## Example Applications
 
@@ -344,7 +349,7 @@ APP = ClawFlowApp(
 result = APP.run()
 ```
 
-CLI and Web templates produce Runtime-backed applications and `BaseTool` scaffolds. Generated applications are not standalone demos; they use the same Runtime, governance, memory, trace and checkpoint chain.
+CLI, API and Web templates produce Runtime-backed applications, `BaseTool` scaffolds and MCP-like connector scaffolds. Generated applications are not standalone demos; they use the same Runtime, governance, memory, trace and checkpoint chain. Generated connectors inherit `ConnectorBase`, persist real local operation records to JSONL under `outputs/connectors/`, and keep a clear `_call_remote_service` boundary for replacing the local adapter with production SaaS, enterprise API or MCP backends.
 
 ## Project Structure
 
@@ -534,13 +539,15 @@ def generate_technical_report() -> str:
         (
             "Multi-channel Gateway 设计",
             """
-            ClawFlow 提供 CLI、FastAPI 和 Web UI 三类入口。CLI 面向开发者和答辩演示，支持 run、serve、trace、memory、resume、tools、app、benchmark。FastAPI 提供 /health、/run、/runs、/runs/{run_id}/trace、/runs/{run_id}/resume、/tools、/memory、/plugins、/benchmark、/audit、/governance、/workflow、/applications。Web UI 读取真实 SQLite、JSON 和输出文件，包含首页、Run Agent、Runs、Trace Timeline、Memory、Tools、Plugins、Applications、Benchmark、Governance、Audit Log、Workflow Graph、Multi-agent、RAG、Roadmap。
+            ClawFlow 提供 CLI、FastAPI 和 Web UI 三类入口。CLI 面向开发者和答辩演示，支持 run、serve、trace、memory、resume、tools、app、benchmark，以及 generate app/tool/connector 开发者模板。FastAPI 提供 /health、/run、/runs、/runs/{run_id}/trace、/runs/{run_id}/resume、/tools、/memory、/plugins、/benchmark、/audit、/governance、/workflow、/applications、/templates/app、/templates/tool 和 /templates/connector。Web UI 读取真实 SQLite、JSON 和输出文件，包含首页、Run Agent、Runs、Trace Timeline、Memory、Tools、Plugins、Applications、Benchmark、Governance、Audit Log、Workflow Graph、Multi-agent、RAG、Roadmap 与 Template Generator。
             """,
         ),
         (
             "插件扩展机制",
             """
             插件系统由 plugin_manifest.json、PluginLoader 和 DynamicPluginTool 组成。当前实现包含 plugin_workspace_stats 和 plugin_echo，前者读取真实工作区文件数量并写入 outputs/plugin_workspace_stats.json，后者展示动态工具调用。插件工具会真实进入 Tool Registry，因此 CLI、Runtime 和 Web UI 都可以看到它们。该机制为 MCP、企业 API、第三方 SaaS 工具和自定义工具接入预留标准化接口。
+
+            本轮进一步加入 Connector Template Generator。开发者可以通过 CLI、API 或 Web UI 生成继承 ConnectorBase 的 MCP-like connector scaffold。生成的连接器不是空壳：本地适配器会把 operation、payload、timestamp 和 connector 名称追加写入 outputs/connectors/<name>/events.jsonl，从而在无企业 API 账号时仍能展示真实状态、真实文件和真实可测试数据流；生产接入时只需要替换 _call_remote_service 边界即可对接工单、CRM、日历、知识库或 MCP 服务端。
 
             ![Plugin System](assets/diagrams/plugin_system.png)
             """,

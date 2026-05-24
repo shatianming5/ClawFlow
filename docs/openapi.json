@@ -939,6 +939,48 @@
         }
       }
     },
+    "/templates/connector": {
+      "post": {
+        "summary": "Template Connector",
+        "operationId": "template_connector_templates_connector_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "type": "object",
+                "title": "Payload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Template Connector Templates Connector Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/dashboard": {
       "get": {
         "summary": "Dashboard",
@@ -1443,6 +1485,24 @@
       "post": {
         "summary": "Template Generator Tool Html",
         "operationId": "template_generator_tool_html_template_generator_tool_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/template-generator/connector": {
+      "post": {
+        "summary": "Template Generator Connector Html",
+        "operationId": "template_generator_connector_html_template_generator_connector_post",
         "responses": {
           "200": {
             "description": "Successful Response",

@@ -152,6 +152,10 @@ def generate_cmd(args: argparse.Namespace) -> None:
         from scripts.create_tool_template import create_tool
 
         print(create_tool(args.name, args.risk))
+    elif args.kind == "connector":
+        from scripts.create_connector_template import create_connector
+
+        print(create_connector(args.name, args.operation or "sync"))
 
 
 def serve_cmd(args: argparse.Namespace) -> None:
@@ -240,10 +244,11 @@ def build_parser() -> argparse.ArgumentParser:
     bench.set_defaults(func=benchmark_cmd)
 
     generate = sub.add_parser("generate")
-    generate.add_argument("kind", choices=["app", "tool"])
+    generate.add_argument("kind", choices=["app", "tool", "connector"])
     generate.add_argument("name")
     generate.add_argument("--task")
     generate.add_argument("--risk", choices=["low", "medium", "high"], default="low")
+    generate.add_argument("--operation", default="sync")
     generate.set_defaults(func=generate_cmd)
     return parser
 

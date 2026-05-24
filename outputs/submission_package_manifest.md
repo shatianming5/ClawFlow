@@ -1,8 +1,8 @@
 # ClawFlow Submission Package Manifest
 
 - Package: `dist/ClawFlow_submission_package.zip`
-- Entries: 240
-- Bytes: 5697906
+- Entries: 241
+- Bytes: 5717416
 - Status: ok
 
 ## Required Content Check

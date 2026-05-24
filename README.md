@@ -52,10 +52,11 @@ This repository is packaged for GitHub with Apache-2.0 licensing, issue template
 | Submission Package Check | `scripts/verify_submission_package.py` verifies ZIP contents for course/challenge upload |
 | Plugin Registry | Manifest-driven plugin tools loaded into Tool Registry |
 | MCP-like Connector | Local email, calendar, search connectors with replaceable interface |
+| Connector Template Generator | `clawflow generate connector ...`, `/templates/connector` and Web templates create MCP-like local JSONL adapters with production backend extension points |
 | RAG Module | Document loader, chunker, keyword retriever, grounded answer |
 | Multi-agent Collaboration | ManagerAgent, ResearchAgent, ToolAgent, CriticAgent, MemoryAgent, ReportAgent, SlideAgent, GovernanceAgent |
 | Benchmark & Evaluation | Real Runtime tasks, latency, success rate, tool calls and trace events |
-| Developer Templates | `clawflow generate app ...` and `clawflow generate tool ...` produce Runtime-backed scaffolds |
+| Developer Templates | `clawflow generate app ...`, `clawflow generate tool ...` and `clawflow generate connector ...` produce Runtime-backed application, tool and connector scaffolds |
 
 ## Architecture
 
@@ -115,6 +116,7 @@ clawflow metrics failures
 clawflow policy set high ask --reason "Keep destructive tools approval-gated"
 clawflow generate app knowledge_ops --task "请基于 ClawFlow Runtime 构建知识运营助手。"
 clawflow generate tool local_crm_lookup --risk medium
+clawflow generate connector enterprise_ticket_connector --operation sync_ticket
 ```
 
 ## API
@@ -130,6 +132,9 @@ curl http://127.0.0.1:8000/metrics/tool-usage
 curl -X POST http://127.0.0.1:8000/templates/app \
   -H 'Content-Type: application/json' \
   -d '{"name":"generated_ops_agent","task":"请基于 Runtime 生成运营助手。"}'
+curl -X POST http://127.0.0.1:8000/templates/connector \
+  -H 'Content-Type: application/json' \
+  -d '{"name":"enterprise_ticket_connector","operation":"sync_ticket"}'
 ```
 
 The OpenAPI schema can be regenerated with:
@@ -164,7 +169,7 @@ The Web Dashboard reads real persisted state instead of static page data:
 - `/failure-analysis`: failed and pending run analysis.
 - `/failure-recovery`: checkpoint-backed recovery recommendations.
 - `/tool-usage`: tool usage heatmap from trace events.
-- `/template-generator`: application/tool scaffold generator.
+- `/template-generator`: application/tool/connector scaffold generator.
 
 ## Example Applications
 
@@ -207,7 +212,7 @@ Latest benchmark summary:
 
 - Total tasks: 6
 - Success rate: 1.0
-- Average latency: 0.1909
+- Average latency: 0.1882
 - Average tool calls: 3
 - Trace events: 147
 
@@ -313,7 +318,7 @@ APP = ClawFlowApp(
 result = APP.run()
 ```
 
-CLI and Web templates produce Runtime-backed applications and `BaseTool` scaffolds. Generated applications are not standalone demos; they use the same Runtime, governance, memory, trace and checkpoint chain.
+CLI, API and Web templates produce Runtime-backed applications, `BaseTool` scaffolds and MCP-like connector scaffolds. Generated applications are not standalone demos; they use the same Runtime, governance, memory, trace and checkpoint chain. Generated connectors inherit `ConnectorBase`, persist real local operation records to JSONL under `outputs/connectors/`, and keep a clear `_call_remote_service` boundary for replacing the local adapter with production SaaS, enterprise API or MCP backends.
 
 ## Project Structure
 

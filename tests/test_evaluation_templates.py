@@ -24,11 +24,19 @@ def test_template_api_generates_runtime_backed_application_and_tool():
     client = TestClient(app)
     app_response = client.post("/templates/app", json={"name": "generated_pytest_api_app", "task": "请测试模板生成。"})
     tool_response = client.post("/templates/tool", json={"name": "generated_pytest_api_tool", "risk": "low"})
+    connector_response = client.post(
+        "/templates/connector",
+        json={"name": "generated_pytest_api_connector", "operation": "sync_case"},
+    )
     assert app_response.status_code == 200
     assert tool_response.status_code == 200
+    assert connector_response.status_code == 200
     app_path = Path(app_response.json()["path"]) / "app.py"
     tool_path = Path(tool_response.json()["path"])
+    connector_path = Path(connector_response.json()["path"])
     assert app_path.exists()
     assert "ClawFlowApp" in app_path.read_text(encoding="utf-8")
     assert tool_path.exists()
     assert "BaseTool" in tool_path.read_text(encoding="utf-8")
+    assert connector_path.exists()
+    assert "ConnectorBase" in connector_path.read_text(encoding="utf-8")

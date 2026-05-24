@@ -14,3 +14,4 @@ def test_web_ui_reads_real_persisted_data():
     assert "Failure Recovery Report" in web.recovery_page()
     assert "Tool Usage Heatmap" in web.tool_usage_page()
     assert "Template Generator" in web.template_generator_page()
+    assert "Connector Template" in web.template_generator_page()

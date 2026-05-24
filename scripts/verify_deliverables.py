@@ -28,6 +28,7 @@ REQUIRED_FILES = [
     "scripts/package_release.py",
     "scripts/check_publish_readiness.py",
     "scripts/verify_submission_package.py",
+    "scripts/create_connector_template.py",
     "docs/openapi.json",
     "docs/api_reference.md",
     "docs/github_publish_guide.md",
@@ -120,6 +121,7 @@ README_KEYWORDS = [
     "Prompt Template Registry",
     "Evaluation Leaderboard",
     "Failure Recovery Report",
+    "Connector Template Generator",
     "Developer Framework",
     "GitHub Publish",
     "Why ClawFlow is not just demos",
@@ -177,7 +179,17 @@ def verify_openapi() -> None:
     data = json.loads(_path("docs/openapi.json").read_text(encoding="utf-8"))
     paths = data.get("paths", {})
     require(len(paths) >= 20, f"OpenAPI path count too small: {len(paths)}")
-    for route in ["/health", "/run", "/runs", "/tools", "/memory", "/benchmark", "/evaluation", "/failure-recovery"]:
+    for route in [
+        "/health",
+        "/run",
+        "/runs",
+        "/tools",
+        "/memory",
+        "/benchmark",
+        "/evaluation",
+        "/failure-recovery",
+        "/templates/connector",
+    ]:
         require(route in paths, f"OpenAPI missing route: {route}")
 
 

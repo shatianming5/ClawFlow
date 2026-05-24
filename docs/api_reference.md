@@ -55,8 +55,10 @@ This document is generated from the live FastAPI app schema by `scripts/export_o
 | GET | `/runs/{run_id}/trace` | Run Trace |
 | GET | `/template-generator` | Template Generator Html |
 | POST | `/template-generator/app` | Template Generator App Html |
+| POST | `/template-generator/connector` | Template Generator Connector Html |
 | POST | `/template-generator/tool` | Template Generator Tool Html |
 | POST | `/templates/app` | Template App |
+| POST | `/templates/connector` | Template Connector |
 | POST | `/templates/tool` | Template Tool |
 | GET | `/tool-usage` | Tool Usage Html |
 | GET | `/tools` | Tools |
