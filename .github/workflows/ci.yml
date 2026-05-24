@@ -41,5 +41,8 @@ jobs:
           test -f outputs/failure_recovery_report.md
           test -f docs/openapi.json
 
+      - name: Build local release bundle
+        run: python -m scripts.package_release
+
       - name: Verify deliverable completeness
         run: python -m scripts.verify_deliverables

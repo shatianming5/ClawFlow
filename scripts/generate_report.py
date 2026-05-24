@@ -77,6 +77,7 @@ This repository is packaged for GitHub with Apache-2.0 licensing, issue template
 | Failure Recovery Report | Recommends resume/replay/approval actions from checkpoints and failed runs |
 | OpenAPI Export | `scripts/export_openapi.py` writes `docs/openapi.json` and `docs/api_reference.md` from FastAPI |
 | Deliverable Verification | `scripts/verify_deliverables.py` checks files, README, OpenAPI, benchmark, screenshots, applications and tests |
+| Release Packaging | `scripts/package_release.py` builds a local release archive and manifest |
 | Plugin Registry | Manifest-driven plugin tools loaded into Tool Registry |
 | MCP-like Connector | Local email, calendar, search connectors with replaceable interface |
 | RAG Module | Document loader, chunker, keyword retriever, grounded answer |
@@ -108,6 +109,7 @@ clawflow app multi-agent
 clawflow app rag
 clawflow benchmark
 make verify
+make release
 clawflow serve
 ```
 
@@ -266,6 +268,28 @@ python -m scripts.verify_deliverables --with-tests
 
 The verifier checks required source files, community files, README sections, OpenAPI routes, diagrams, screenshots, benchmark outputs, evaluation leaderboard, failure recovery report, technical report, PPT, Runtime-backed applications and the test suite. It writes `outputs/deliverable_verification.json` for audit evidence.
 
+## Release Packaging
+
+Build a local release archive for offline submission or manual upload:
+
+```bash
+make release
+```
+
+Generated files:
+
+- `dist/clawflow_release.zip`
+- `outputs/release_manifest.json`
+- `outputs/release_manifest.md`
+
+The archive is built from tracked source and deliverable files while excluding local databases, trace logs, checkpoints, server logs and generated smoke-test templates.
+
+## Defense Materials
+
+- `docs/delivery_checklist.md`: submission and verification checklist.
+- `docs/defense_qa.md`: answer bank for defense questions.
+- `docs/comparison.md`: positioning against graph, multi-agent, provider SDK and ordinary demo-style projects.
+
 ## Developer Framework
 
 ClawFlow includes a lightweight SDK and template generators:
@@ -321,6 +345,7 @@ GitHub Actions workflow `.github/workflows/ci.yml` runs on push and pull request
 - export OpenAPI schema
 - verify benchmark, evaluation, recovery and API artifacts exist
 - verify deliverable completeness with `scripts.verify_deliverables`
+- build a local release bundle with `scripts.package_release`
 
 ## Configuration
 

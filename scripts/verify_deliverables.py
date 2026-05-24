@@ -24,8 +24,13 @@ REQUIRED_FILES = [
     "Makefile",
     ".env.example",
     ".github/workflows/ci.yml",
+    "scripts/verify_deliverables.py",
+    "scripts/package_release.py",
     "docs/openapi.json",
     "docs/api_reference.md",
+    "docs/delivery_checklist.md",
+    "docs/defense_qa.md",
+    "docs/comparison.md",
     "docs/technical_report.md",
     "docs/technical_report.docx",
     "docs/technical_report.pdf",
@@ -36,6 +41,7 @@ REQUIRED_FILES = [
     "outputs/benchmark_results.json",
     "outputs/evaluation_leaderboard.json",
     "outputs/failure_recovery_report.md",
+    "outputs/release_manifest.md",
     "outputs/research_summary.md",
     "outputs/report_outline.md",
     "outputs/TODO.md",
@@ -237,4 +243,3 @@ if __name__ == "__main__":
     except VerificationError as exc:
         print(f"deliverable verification failed: {exc}", file=sys.stderr)
         raise SystemExit(1)
-
