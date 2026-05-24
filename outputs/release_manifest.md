@@ -1,8 +1,10 @@
 # ClawFlow Release Manifest
 
 - Artifact: `dist/clawflow_release.zip`
-- Included files: 237
-- Archive bytes: 5693199
+- Submission package: `dist/ClawFlow_submission_package.zip`
+- Included files: 240
+- Archive bytes: 5697906
+- Submission bytes: 5697906
 
 ## Entrypoints
 - `clawflow.gateway.cli:main`

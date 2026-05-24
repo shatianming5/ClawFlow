@@ -4,6 +4,18 @@ This report is computed from persisted runs, trace events, approval requests and
 
 | Run ID | Status | Checkpoint | Recommended Action | Command |
 |---|---|---|---|---|
+| `run_32023c02babe` | failed | True | replay_and_rerun | `clawflow trace replay run_32023c02babe` |
+| `run_659682366d48` | pending_approval | True | approve_or_deny | `clawflow approvals approve run_659682366d48` |
+| `run_770460b157e3` | failed | True | replay_and_rerun | `clawflow trace replay run_770460b157e3` |
+| `run_f902e498fe9d` | pending_approval | True | approve_or_deny | `clawflow approvals approve run_f902e498fe9d` |
+| `run_07ac15caafdf` | failed | True | replay_and_rerun | `clawflow trace replay run_07ac15caafdf` |
+| `run_205236ad0f88` | pending_approval | True | approve_or_deny | `clawflow approvals approve run_205236ad0f88` |
+| `run_1ce8f2f660c5` | failed | True | replay_and_rerun | `clawflow trace replay run_1ce8f2f660c5` |
+| `run_d6b7a71d2e70` | pending_approval | True | approve_or_deny | `clawflow approvals approve run_d6b7a71d2e70` |
+| `run_58c84a3ddb8c` | failed | True | replay_and_rerun | `clawflow trace replay run_58c84a3ddb8c` |
+| `run_cdf8b74dacb2` | pending_approval | True | approve_or_deny | `clawflow approvals approve run_cdf8b74dacb2` |
+| `run_bd76651ed6fb` | failed | True | replay_and_rerun | `clawflow trace replay run_bd76651ed6fb` |
+| `run_ed1d3ce06bc6` | pending_approval | True | approve_or_deny | `clawflow approvals approve run_ed1d3ce06bc6` |
 | `run_32b3d7f6ab48` | failed | True | replay_and_rerun | `clawflow trace replay run_32b3d7f6ab48` |
 | `run_8bdc86bf8f77` | pending_approval | True | approve_or_deny | `clawflow approvals approve run_8bdc86bf8f77` |
 | `run_2793af5a6b4e` | failed | True | replay_and_rerun | `clawflow trace replay run_2793af5a6b4e` |

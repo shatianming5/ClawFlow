@@ -24,6 +24,7 @@ REQUIRED_ASSETS = [
     "outputs/evaluation_leaderboard.json",
     "outputs/failure_recovery_report.md",
     "dist/clawflow_release.zip",
+    "dist/ClawFlow_submission_package.zip",
 ]
 
 

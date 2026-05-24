@@ -1,0 +1,46 @@
+# ClawFlow Submission Package Manifest
+
+- Package: `dist/ClawFlow_submission_package.zip`
+- Entries: 240
+- Bytes: 5697906
+- Status: ok
+
+## Required Content Check
+- [x] `README.md`
+- [x] `LICENSE`
+- [x] `CONTRIBUTING.md`
+- [x] `SECURITY.md`
+- [x] `GOVERNANCE.md`
+- [x] `ROADMAP.md`
+- [x] `pyproject.toml`
+- [x] `config.yaml`
+- [x] `Dockerfile`
+- [x] `docker-compose.yml`
+- [x] `Makefile`
+- [x] `clawflow/core/runtime.py`
+- [x] `clawflow/core/executor.py`
+- [x] `clawflow/tools/registry.py`
+- [x] `clawflow/gateway/cli.py`
+- [x] `clawflow/gateway/api.py`
+- [x] `applications/research_assistant/app.py`
+- [x] `applications/personal_assistant/app.py`
+- [x] `applications/safe_tool_call/app.py`
+- [x] `applications/multi_agent_project_analysis/app.py`
+- [x] `applications/rag_assistant/app.py`
+- [x] `docs/technical_report.md`
+- [x] `docs/technical_report.docx`
+- [x] `docs/technical_report.pdf`
+- [x] `slides/ClawFlow_presentation.pptx`
+- [x] `slides/ClawFlow_presentation.pdf`
+- [x] `docs/assets/screenshots/web_home.png`
+- [x] `docs/assets/screenshots/cli_research_application.png`
+- [x] `docs/assets/diagrams/architecture.png`
+- [x] `docs/assets/diagrams/agentos_kernel.png`
+- [x] `docs/assets/figures/benchmark_latency.png`
+- [x] `outputs/benchmark_results.json`
+- [x] `outputs/evaluation_leaderboard.json`
+- [x] `outputs/failure_recovery_report.md`
+- [x] `tests/test_runtime.py`
+- [x] `tests/test_api.py`
+- [x] `scripts/run_benchmark.py`
+- [x] `scripts/verify_deliverables.py`

@@ -46,15 +46,23 @@ def main() -> dict:
     dist = ROOT / "dist"
     dist.mkdir(exist_ok=True)
     output_zip = dist / "clawflow_release.zip"
+    submission_zip = dist / "ClawFlow_submission_package.zip"
     files = [path for path in tracked_files() if path.exists() and include(path)]
-    with zipfile.ZipFile(output_zip, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for path in files:
-            archive.write(path, path.relative_to(ROOT).as_posix())
+
+    def write_archive(path: Path) -> None:
+        with zipfile.ZipFile(path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            for file_path in files:
+                archive.write(file_path, file_path.relative_to(ROOT).as_posix())
+
+    write_archive(output_zip)
+    write_archive(submission_zip)
     manifest = {
         "name": "ClawFlow",
         "artifact": str(output_zip.relative_to(ROOT)),
+        "submission_artifact": str(submission_zip.relative_to(ROOT)),
         "file_count": len(files),
         "bytes": output_zip.stat().st_size,
+        "submission_bytes": submission_zip.stat().st_size,
         "required_entrypoints": [
             "clawflow.gateway.cli:main",
             "clawflow.gateway.api:app",
@@ -79,8 +87,10 @@ def main() -> dict:
         "# ClawFlow Release Manifest",
         "",
         f"- Artifact: `{manifest['artifact']}`",
+        f"- Submission package: `{manifest['submission_artifact']}`",
         f"- Included files: {manifest['file_count']}",
         f"- Archive bytes: {manifest['bytes']}",
+        f"- Submission bytes: {manifest['submission_bytes']}",
         "",
         "## Entrypoints",
     ]

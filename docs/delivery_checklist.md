@@ -21,6 +21,7 @@ This checklist is intended for course submission, challenge review, GitHub relea
 - [x] Apache-2.0 license and community files.
 - [x] Docker, Makefile, CI and deliverable verification gate.
 - [x] Release archive, GitHub publish guide and local publish readiness checker.
+- [x] Submission ZIP package at `dist/ClawFlow_submission_package.zip`.
 
 ## Verification Commands
 
@@ -29,11 +30,14 @@ make install
 make all
 python -m scripts.verify_deliverables --with-tests
 python -m scripts.package_release
+python -m scripts.verify_submission_package
 ```
 
 ## Submission Notes
 
 - Use `README.md` as the GitHub landing page.
+- Use `dist/ClawFlow_submission_package.zip` as the single upload package for course/challenge submission.
+- Keep `outputs/submission_package_manifest.md` beside the ZIP as machine-checkable package evidence.
 - Run `make publish-check` before adding a remote, then `make publish-check-strict` after `origin` is configured.
 - Push with `git push -u origin main` once the GitHub repository URL is available.
 - Use `docs/technical_report.pdf` or `docs/technical_report.docx` as the formal report.

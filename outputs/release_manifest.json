@@ -1,8 +1,10 @@
 {
   "name": "ClawFlow",
   "artifact": "dist/clawflow_release.zip",
-  "file_count": 237,
-  "bytes": 5693199,
+  "submission_artifact": "dist/ClawFlow_submission_package.zip",
+  "file_count": 240,
+  "bytes": 5697906,
+  "submission_bytes": 5697906,
   "required_entrypoints": [
     "clawflow.gateway.cli:main",
     "clawflow.gateway.api:app",

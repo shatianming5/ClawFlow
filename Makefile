@@ -1,4 +1,4 @@
-.PHONY: install test app serve benchmark screenshots report ppt diagrams api-docs verify release publish-check publish-check-strict all
+.PHONY: install test app serve benchmark screenshots report ppt diagrams api-docs verify release submission-check publish-check publish-check-strict all
 
 install:
 	python -m pip install -e .
@@ -30,6 +30,9 @@ verify:
 release:
 	python -m scripts.package_release
 
+submission-check:
+	python -m scripts.verify_submission_package
+
 publish-check:
 	python -m scripts.check_publish_readiness
 
@@ -42,4 +45,4 @@ report:
 ppt:
 	python -m scripts.generate_ppt
 
-all: app benchmark diagrams screenshots report ppt api-docs release verify test
+all: app benchmark diagrams screenshots report ppt api-docs release submission-check verify test

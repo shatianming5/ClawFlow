@@ -79,7 +79,8 @@ This repository is packaged for GitHub with Apache-2.0 licensing, issue template
 | Failure Recovery Report | Recommends resume/replay/approval actions from checkpoints and failed runs |
 | OpenAPI Export | `scripts/export_openapi.py` writes `docs/openapi.json` and `docs/api_reference.md` from FastAPI |
 | Deliverable Verification | `scripts/verify_deliverables.py` checks files, README, OpenAPI, benchmark, screenshots, applications and tests |
-| Release Packaging | `scripts/package_release.py` builds a local release archive and manifest |
+| Release Packaging | `scripts/package_release.py` builds a local release archive, submission ZIP and manifest |
+| Submission Package Check | `scripts/verify_submission_package.py` verifies ZIP contents for course/challenge upload |
 | Plugin Registry | Manifest-driven plugin tools loaded into Tool Registry |
 | MCP-like Connector | Local email, calendar, search connectors with replaceable interface |
 | RAG Module | Document loader, chunker, keyword retriever, grounded answer |
@@ -112,6 +113,7 @@ clawflow app rag
 clawflow benchmark
 make verify
 make release
+make submission-check
 make publish-check
 clawflow serve
 ```
@@ -271,9 +273,9 @@ python -m scripts.verify_deliverables --with-tests
 
 The verifier checks required source files, community files, README sections, OpenAPI routes, diagrams, screenshots, benchmark outputs, evaluation leaderboard, failure recovery report, technical report, PPT, Runtime-backed applications and the test suite. It writes `outputs/deliverable_verification.json` for audit evidence.
 
-## Release Packaging
+## Submission ZIP
 
-Build a local release archive for offline submission or manual upload:
+Build a local release archive and a submission-ready ZIP for offline upload:
 
 ```bash
 make release
@@ -282,10 +284,19 @@ make release
 Generated files:
 
 - `dist/clawflow_release.zip`
+- `dist/ClawFlow_submission_package.zip`
 - `outputs/release_manifest.json`
 - `outputs/release_manifest.md`
+- `outputs/submission_package_manifest.json`
+- `outputs/submission_package_manifest.md`
 
-The archive is built from tracked source and deliverable files while excluding local databases, trace logs, checkpoints, server logs and generated smoke-test templates.
+`dist/ClawFlow_submission_package.zip` is the file to submit for course/challenge upload. It contains source code, applications, tests, README, technical report, PPT, screenshots, diagrams, benchmark outputs, configuration, Docker files and open-source community files. The archive is built from source and deliverable files while excluding local databases, trace logs, checkpoints, server logs and generated smoke-test templates.
+
+Verify the upload package contents with:
+
+```bash
+make submission-check
+```
 
 ## GitHub Publish
 
