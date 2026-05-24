@@ -1,0 +1,11 @@
+services:
+  clawflow:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./outputs:/app/outputs
+      - ./docs/assets:/app/docs/assets
+    environment:
+      CLAWFLOW_LLM_MODE: local
+

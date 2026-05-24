@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clawflow"
+version = "0.1.0"
+description = "A lightweight Agent Runtime for next-generation personal AI agents."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "ClawFlow Contributors"}]
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+  "httpx>=0.26",
+  "pytest>=8.0",
+  "python-pptx>=0.6.23",
+  "python-docx>=1.1.0",
+  "pillow>=10.0",
+  "reportlab>=4.0",
+]
+
+[project.scripts]
+clawflow = "clawflow.gateway.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["clawflow*", "applications*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

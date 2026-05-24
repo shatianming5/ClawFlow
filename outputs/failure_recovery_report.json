@@ -1,0 +1,189 @@
+{
+  "status": "ok",
+  "recommendations": [
+    {
+      "run_id": "run_83f059696b2e",
+      "application": "test_approval_deny",
+      "status": "failed",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "denied",
+      "recommended_action": "replay_and_rerun",
+      "command": "clawflow trace replay run_83f059696b2e",
+      "reason": "Run failed; inspect trace and checkpoint before rerun."
+    },
+    {
+      "run_id": "run_f1aecc1367ae",
+      "application": "test_metrics_pending",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "pending",
+      "recommended_action": "approve_or_deny",
+      "command": "clawflow approvals approve run_f1aecc1367ae",
+      "reason": "Run is paused at a human-in-the-loop approval boundary."
+    },
+    {
+      "run_id": "run_4801ceb02a2d",
+      "application": "test_approval_deny",
+      "status": "failed",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "denied",
+      "recommended_action": "replay_and_rerun",
+      "command": "clawflow trace replay run_4801ceb02a2d",
+      "reason": "Run failed; inspect trace and checkpoint before rerun."
+    },
+    {
+      "run_id": "run_28d6c1fba542",
+      "application": "test_metrics_pending",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "pending",
+      "recommended_action": "approve_or_deny",
+      "command": "clawflow approvals approve run_28d6c1fba542",
+      "reason": "Run is paused at a human-in-the-loop approval boundary."
+    },
+    {
+      "run_id": "run_6bf7112e7db4",
+      "application": "test_approval_deny",
+      "status": "failed",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "denied",
+      "recommended_action": "replay_and_rerun",
+      "command": "clawflow trace replay run_6bf7112e7db4",
+      "reason": "Run failed; inspect trace and checkpoint before rerun."
+    },
+    {
+      "run_id": "run_39eb2f542e98",
+      "application": "test_metrics_pending",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "pending",
+      "recommended_action": "approve_or_deny",
+      "command": "clawflow approvals approve run_39eb2f542e98",
+      "reason": "Run is paused at a human-in-the-loop approval boundary."
+    },
+    {
+      "run_id": "run_a528f16968e2",
+      "application": "test_approval_deny",
+      "status": "failed",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "denied",
+      "recommended_action": "replay_and_rerun",
+      "command": "clawflow trace replay run_a528f16968e2",
+      "reason": "Run failed; inspect trace and checkpoint before rerun."
+    },
+    {
+      "run_id": "run_e610f93dea68",
+      "application": "test_metrics_pending",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "pending",
+      "recommended_action": "approve_or_deny",
+      "command": "clawflow approvals approve run_e610f93dea68",
+      "reason": "Run is paused at a human-in-the-loop approval boundary."
+    },
+    {
+      "run_id": "run_dadae0d4e36f",
+      "application": "test_approval_deny",
+      "status": "failed",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "denied",
+      "recommended_action": "replay_and_rerun",
+      "command": "clawflow trace replay run_dadae0d4e36f",
+      "reason": "Run failed; inspect trace and checkpoint before rerun."
+    },
+    {
+      "run_id": "run_5eb87f8cd63d",
+      "application": "human-approval",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "pending",
+      "recommended_action": "approve_or_deny",
+      "command": "clawflow approvals approve run_5eb87f8cd63d",
+      "reason": "Run is paused at a human-in-the-loop approval boundary."
+    },
+    {
+      "run_id": "run_76db497e595f",
+      "application": "test_metrics_pending",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "pending",
+      "recommended_action": "approve_or_deny",
+      "command": "clawflow approvals approve run_76db497e595f",
+      "reason": "Run is paused at a human-in-the-loop approval boundary."
+    },
+    {
+      "run_id": "run_1c4f69c19c27",
+      "application": "test_approval_deny",
+      "status": "failed",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "denied",
+      "recommended_action": "replay_and_rerun",
+      "command": "clawflow trace replay run_1c4f69c19c27",
+      "reason": "Run failed; inspect trace and checkpoint before rerun."
+    },
+    {
+      "run_id": "run_1824dfceece3",
+      "application": "human_approval",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": null,
+      "recommended_action": "inspect_checkpoint",
+      "command": "clawflow trace replay run_1824dfceece3",
+      "reason": "Run is pending but no active approval row was found."
+    },
+    {
+      "run_id": "run_0c02a5bbdf84",
+      "application": "human-approval",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": null,
+      "recommended_action": "inspect_checkpoint",
+      "command": "clawflow trace replay run_0c02a5bbdf84",
+      "reason": "Run is pending but no active approval row was found."
+    }
+  ],
+  "failure_event_count": 28,
+  "checkpoint_dir": "outputs/checkpoints"
+}

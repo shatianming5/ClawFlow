@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "plugins": [
+    {
+      "name": "clawflow-local-workspace-plugin",
+      "version": "0.1.0",
+      "description": "A local plugin that demonstrates MCP-like tool registration using real workspace data.",
+      "enabled": true,
+      "tools": [
+        {
+          "name": "plugin_workspace_stats",
+          "description": "Count real files in the current workspace and write outputs/plugin_workspace_stats.json.",
+          "risk_level": "low",
+          "operation": "workspace_stats",
+          "enabled": true,
+          "input_schema": {},
+          "output_schema": {"file_count": "integer", "python_files": "integer", "markdown_files": "integer"}
+        },
+        {
+          "name": "plugin_echo",
+          "description": "Echo user-provided text through a dynamically loaded plugin tool.",
+          "risk_level": "low",
+          "operation": "echo",
+          "enabled": true,
+          "input_schema": {"text": "string"},
+          "output_schema": {"text": "string"}
+        }
+      ]
+    }
+  ]
+}
+

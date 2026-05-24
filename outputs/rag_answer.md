@@ -1,0 +1,15 @@
+# RAG Answer
+
+Query: 请根据 docs 中的项目文档回答 ClawFlow 的核心创新点。
+
+## Answer
+ClawFlow 的核心创新点集中在统一 Agent Runtime、AgentOS Kernel、权限治理、可观测 trace、checkpoint/resume、Memory Layer、插件注册、RAG 与多智能体协作。
+这些结论来自当前仓库中的真实文档片段，而不是固定模板输出。
+
+## Retrieved evidence
+1. `outputs/workflow_run_94825d5af040.json` (score=5): { "steps": [ { "id": "s1", "action": "list_files", "args": { "path": ".", "max_files": 180 }, "depends_on": [], "retry": 0, "description": "Inspect live workspace files" }, { "id": "s2", "action": "local_document_search", "args": { "query": "请根据 docs 中的项目文档回答 ClawFlow 的核心创新点。", "path": "docs", "limit": 8 }, "depends_on": [ "s1" ], "retry": 0, "description": "Retrieve project documentation" }, { "id": "s3", "action": 
+2. `outputs/workflow_run_6b6aa0508a19.json` (score=5): { "steps": [ { "id": "s1", "action": "list_files", "args": { "path": ".", "max_files": 180 }, "depends_on": [], "retry": 0, "description": "Inspect live workspace files" }, { "id": "s2", "action": "local_document_search", "args": { "query": "请根据 docs 中的项目文档回答 ClawFlow 的核心创新点。", "path": "docs", "limit": 8 }, "depends_on": [ "s1" ], "retry": 0, "description": "Retrieve project documentation" }, { "id": "s3", "action": 
+3. `outputs/workflow_run_a9ca1e9607a6.json` (score=5): { "steps": [ { "id": "s1", "action": "list_files", "args": { "path": ".", "max_files": 180 }, "depends_on": [], "retry": 0, "description": "Inspect live workspace files" }, { "id": "s2", "action": "local_document_search", "args": { "query": "请根据 docs 中的项目文档回答 ClawFlow 的核心创新点。", "path": "docs", "limit": 8 }, "depends_on": [ "s1" ], "retry": 0, "description": "Retrieve project documentation" }, { "id": "s3", "action": 
+4. `outputs/workflow_run_c425b2ddc6cb.json` (score=5): { "steps": [ { "id": "s1", "action": "list_files", "args": { "path": ".", "max_files": 180 }, "depends_on": [], "retry": 0, "description": "Inspect live workspace files" }, { "id": "s2", "action": "local_document_search", "args": { "query": "请根据 docs 中的项目文档回答 ClawFlow 的核心创新点。", "path": ".", "limit": 8 }, "depends_on": [ "s1" ], "retry": 0, "description": "Retrieve project documentation" }, { "id": "s3", "action": "ra
+5. `outputs/workflow_run_2a929742594f.json` (score=5): { "steps": [ { "id": "s1", "action": "list_files", "args": { "path": ".", "max_files": 180 }, "depends_on": [], "retry": 0, "description": "Inspect live workspace files" }, { "id": "s2", "action": "local_document_search", "args": { "query": "请根据 docs 中的项目文档回答 ClawFlow 的核心创新点。", "path": "docs", "limit": 8 }, "depends_on": [ "s1" ], "retry": 0, "description": "Retrieve project documentation" }, { "id": "s3", "action": 
+6. `outputs/workflow_run_3be16f19684d.json` (score=5): { "steps": [ { "id": "s1", "action": "list_files", "args": { "path": ".", "max_files": 180 }, "depends_on": [], "retry": 0, "description": "Inspect live workspace files" }, { "id": "s2", "action": "local_document_search", "args": { "query": "请根据 docs 中的项目文档回答 ClawFlow 的核心创新点。", "path": "docs", "limit": 8 }, "depends_on": [ "s1" ], "retry": 0, "description": "Retrieve project documentation" }, { "id": "s3", "action": 

@@ -1,0 +1,39 @@
+llm:
+  mode: local
+  api_key: ""
+  base_url: "https://api.openai.com/v1"
+  model: "gpt-4o-mini"
+storage:
+  dir: "outputs"
+  database: "outputs/clawflow.sqlite3"
+  trace_jsonl: "outputs/trace.jsonl"
+  checkpoint_dir: "outputs/checkpoints"
+logging:
+  level: "INFO"
+web:
+  host: "127.0.0.1"
+  port: 8000
+policy:
+  low: "allow"
+  medium: "ask"
+  high: "ask"
+shell:
+  allowlist:
+    - "ls"
+    - "dir"
+    - "pwd"
+    - "echo"
+    - "python --version"
+    - "pytest"
+    - "tree"
+screenshots:
+  dir: "docs/assets/screenshots"
+benchmark:
+  tasks:
+    - "请分析当前项目结构，生成项目摘要、README 摘要、技术报告大纲和 TODO 列表。"
+    - "请帮我制定明天的学习计划，并保存为 daily_plan.md，同时写入长期记忆。"
+    - "请删除 workspace 中的临时文件。"
+    - "请让多个智能体协作完成一次项目分析。"
+    - "请根据 docs 中的项目文档回答 ClawFlow 的核心创新点。"
+    - "请运行插件工具并展示插件注册能力。"
+

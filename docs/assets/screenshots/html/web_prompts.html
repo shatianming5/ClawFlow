@@ -1,0 +1,32 @@
+
+    <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Prompts · ClawFlow</title><style>
+    :root { --bg:#0e1116; --panel:#171b22; --line:#2b323d; --text:#eef2f6; --muted:#99a4b3; --accent:#49d2b4; --warn:#f2b84b; --danger:#ff6b6b; }
+    * { box-sizing:border-box; } body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:var(--bg); color:var(--text); }
+    a { color:inherit; text-decoration:none; } .shell { display:grid; grid-template-columns:250px 1fr; min-height:100vh; }
+    nav { border-right:1px solid var(--line); padding:22px 16px; background:#11151b; position:sticky; top:0; height:100vh; }
+    nav h1 { font-size:22px; margin:0 0 4px; } nav p { color:var(--muted); margin:0 0 18px; font-size:12px; line-height:1.4; }
+    nav a { display:block; padding:9px 10px; border-radius:7px; color:#cbd5df; font-size:14px; margin:2px 0; } nav a:hover { background:#202733; }
+    main { padding:24px; } .top { display:flex; gap:12px; align-items:flex-start; justify-content:space-between; margin-bottom:20px; }
+    h2 { margin:0; font-size:24px; } .subtitle { color:var(--muted); margin-top:6px; max-width:900px; line-height:1.45; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; } .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; }
+    .metric { font-size:28px; font-weight:750; } .label { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+    th,td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; font-size:13px; } th { color:#d7dee8; background:#1d232d; }
+    code,pre { background:#0b0d11; border:1px solid var(--line); border-radius:6px; } code { padding:2px 5px; } pre { padding:12px; overflow:auto; max-height:520px; }
+    .pill { display:inline-block; padding:3px 8px; border-radius:999px; background:#26303b; color:#dbe7ef; font-size:12px; } .low { color:var(--accent); } .medium { color:var(--warn); } .high { color:var(--danger); }
+    form { display:grid; gap:10px; max-width:850px; } textarea,input { width:100%; border:1px solid var(--line); background:#10141a; color:var(--text); border-radius:7px; padding:10px; font:inherit; }
+    button { background:var(--accent); color:#04110e; border:0; border-radius:7px; padding:10px 14px; font-weight:700; width:max-content; cursor:pointer; }
+    .danger-button { background:var(--danger); color:#1c0505; }
+    .timeline { display:grid; gap:8px; } .event { border-left:3px solid var(--accent); padding:8px 12px; background:var(--panel); border-radius:0 7px 7px 0; }
+    @media (max-width:800px){ .shell{grid-template-columns:1fr;} nav{height:auto;position:relative;border-right:0;border-bottom:1px solid var(--line);} }
+    </style></head>
+    <body><div class="shell"><nav><h1>ClawFlow</h1><p>Agent Runtime · AgentOS Kernel · Governance · Trace Replay</p><a href="/dashboard">Home</a><a href="/run-agent">Run Agent</a><a href="/runs-page">Runs</a><a href="/trace-timeline">Trace Timeline</a><a href="/memory-browser">Memory</a><a href="/tools-page">Tools</a><a href="/plugins-page">Plugins</a><a href="/applications-page">Applications</a><a href="/benchmark-page">Benchmark</a><a href="/evaluation-leaderboard">Evaluation</a><a href="/governance-page">Governance</a><a href="/approvals-page">Approvals</a><a href="/audit-log">Audit Log</a><a href="/prompts-page">Prompts</a><a href="/cost-page">Cost</a><a href="/failure-analysis">Failures</a><a href="/failure-recovery">Recovery</a><a href="/tool-usage">Tool Heatmap</a><a href="/template-generator">Templates</a><a href="/workflow-graph">Workflow Graph</a><a href="/multi-agent-page">Multi-agent</a><a href="/rag-page">RAG</a><a href="/roadmap">Roadmap</a></nav>
+    <main><div class="top"><div><h2>Prompt Template Registry</h2><div class="subtitle">SQLite-backed prompt templates for repeatable Runtime applications.</div></div></div>
+    <form method="post" action="/prompts-page/render">
+      <input name="name" value="research_summary">
+      <textarea name="variables" rows="4">{"project":"ClawFlow"}</textarea>
+      <button type="submit">Render Template</button>
+    </form>
+    <table><tr><th>Name</th><th>Description</th><th>Tags</th><th>Usage</th><th>Template</th></tr><tr><td><code>governance_review</code></td><td>Review tool risk, audit log, and approval boundaries.</td><td>governance,audit,safety</td><td>0</td><td><pre>请审查 {run_id} 的工具调用风险、权限决策和审计记录。</pre></td></tr><tr><td><code>pytest_prompt</code></td><td>pytest template</td><td>test</td><td>5</td><td><pre>Hello {name}</pre></td></tr><tr><td><code>rag_answer</code></td><td>Answer questions using retrieved ClawFlow project documentation.</td><td>rag,knowledge-base,retrieval</td><td>0</td><td><pre>请根据检索到的文档片段回答：{question}</pre></td></tr><tr><td><code>research_summary</code></td><td>Project analysis prompt for Runtime-backed research applications.</td><td>research,report,agent-runtime</td><td>1</td><td><pre>请分析 {project} 的结构，生成摘要、报告大纲和 TODO 列表。</pre></td></tr></table></main></div></body></html>
+    

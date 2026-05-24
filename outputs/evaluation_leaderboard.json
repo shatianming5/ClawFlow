@@ -1,0 +1,73 @@
+{
+  "source": "outputs/benchmark_results.json",
+  "status": "ok",
+  "leaderboard": [
+    {
+      "application": "research",
+      "run_id": "run_8506f52556c9",
+      "status": "completed",
+      "score": 97.11,
+      "latency": 0.1445,
+      "tool_calls": 4,
+      "trace_event_count": 30,
+      "artifact_count": 4,
+      "rationale": "success + latency + trace richness + tool reuse + artifacts + governance bonus"
+    },
+    {
+      "application": "plugin",
+      "run_id": "run_392f72b0ccdc",
+      "status": "completed",
+      "score": 90.05,
+      "latency": 0.0977,
+      "tool_calls": 3,
+      "trace_event_count": 24,
+      "artifact_count": 1,
+      "rationale": "success + latency + trace richness + tool reuse + artifacts + governance bonus"
+    },
+    {
+      "application": "multi-agent",
+      "run_id": "run_d3df76fc2451",
+      "status": "completed",
+      "score": 84.86,
+      "latency": 0.132,
+      "tool_calls": 3,
+      "trace_event_count": 25,
+      "artifact_count": 1,
+      "rationale": "success + latency + trace richness + tool reuse + artifacts + governance bonus"
+    },
+    {
+      "application": "safe",
+      "run_id": "run_86a59d7458c4",
+      "status": "completed",
+      "score": 82.51,
+      "latency": 0.1493,
+      "tool_calls": 2,
+      "trace_event_count": 19,
+      "artifact_count": 1,
+      "rationale": "success + latency + trace richness + tool reuse + artifacts + governance bonus"
+    },
+    {
+      "application": "rag",
+      "run_id": "run_937c57c84b35",
+      "status": "completed",
+      "score": 78.18,
+      "latency": 0.466,
+      "tool_calls": 3,
+      "trace_event_count": 25,
+      "artifact_count": 1,
+      "rationale": "success + latency + trace richness + tool reuse + artifacts + governance bonus"
+    },
+    {
+      "application": "personal",
+      "run_id": "run_fd5410831805",
+      "status": "completed",
+      "score": 76.19,
+      "latency": 0.5406,
+      "tool_calls": 3,
+      "trace_event_count": 24,
+      "artifact_count": 1,
+      "rationale": "success + latency + trace richness + tool reuse + artifacts + governance bonus"
+    }
+  ],
+  "metric": "ClawFlow local infrastructure evaluation score"
+}

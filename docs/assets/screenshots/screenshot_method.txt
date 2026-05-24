@@ -1,0 +1,2 @@
+method=html_panel_fallback
+playwright_captured=[]
