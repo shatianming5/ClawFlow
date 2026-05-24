@@ -10,5 +10,5 @@
     "publish_readiness",
     "pytest"
   ],
-  "pytest": ".........................                                                [100%]\n25 passed in 8.23s"
+  "pytest": ".........................                                                [100%]\n25 passed in 3.32s"
 }

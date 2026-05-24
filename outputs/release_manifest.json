@@ -2,7 +2,7 @@
   "name": "ClawFlow",
   "artifact": "dist/clawflow_release.zip",
   "file_count": 237,
-  "bytes": 5694294,
+  "bytes": 5693199,
   "required_entrypoints": [
     "clawflow.gateway.cli:main",
     "clawflow.gateway.api:app",

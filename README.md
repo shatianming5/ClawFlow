@@ -12,6 +12,8 @@ ClawFlow is a lightweight **Agent Runtime / AgentOS Kernel** prototype for build
 
 CI workflow: `.github/workflows/ci.yml`
 
+GitHub repository: `https://github.com/shatianming5/ClawFlow`
+
 This repository is packaged for GitHub with Apache-2.0 licensing, issue templates, pull request template, CI workflow, Docker deployment, generated screenshots, benchmark artifacts, OpenAPI schema, release archive, publish readiness checker and complete report/PPT deliverables.
 
 ## Why ClawFlow is not just demos
@@ -203,7 +205,7 @@ Latest benchmark summary:
 
 - Total tasks: 6
 - Success rate: 1.0
-- Average latency: 0.1925
+- Average latency: 0.4029
 - Average tool calls: 3
 - Trace events: 147
 
@@ -260,6 +262,12 @@ The repository has local git commits, CI configuration, Apache-2.0 licensing, co
 
 ```bash
 make publish-check
+```
+
+The current published repository target is:
+
+```bash
+https://github.com/shatianming5/ClawFlow
 ```
 
 After creating an empty GitHub repository and adding a writable remote, run:

@@ -2,7 +2,7 @@
 
 - Artifact: `dist/clawflow_release.zip`
 - Included files: 237
-- Archive bytes: 5694294
+- Archive bytes: 5693199
 
 ## Entrypoints
 - `clawflow.gateway.cli:main`

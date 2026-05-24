@@ -2,6 +2,32 @@
   "status": "ok",
   "recommendations": [
     {
+      "run_id": "run_32b3d7f6ab48",
+      "application": "test_approval_deny",
+      "status": "failed",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "denied",
+      "recommended_action": "replay_and_rerun",
+      "command": "clawflow trace replay run_32b3d7f6ab48",
+      "reason": "Run failed; inspect trace and checkpoint before rerun."
+    },
+    {
+      "run_id": "run_8bdc86bf8f77",
+      "application": "test_metrics_pending",
+      "status": "pending_approval",
+      "checkpoint_exists": true,
+      "completed_steps": [
+        "s1"
+      ],
+      "approval_status": "pending",
+      "recommended_action": "approve_or_deny",
+      "command": "clawflow approvals approve run_8bdc86bf8f77",
+      "reason": "Run is paused at a human-in-the-loop approval boundary."
+    },
+    {
       "run_id": "run_2793af5a6b4e",
       "application": "test_approval_deny",
       "status": "failed",
@@ -366,6 +392,6 @@
       "reason": "Run is pending but no active approval row was found."
     }
   ],
-  "failure_event_count": 56,
+  "failure_event_count": 60,
   "checkpoint_dir": "outputs/checkpoints"
 }

@@ -2,6 +2,8 @@
 
 This repository is ready for local Git history, release packaging, CI, README presentation and manual GitHub publishing. The only operation that cannot be completed from this workspace without external account state is the actual remote push: `origin` must point to a real GitHub repository that the current user can write to.
 
+Current repository target: `https://github.com/shatianming5/ClawFlow`
+
 ## Local Readiness Check
 
 Run the non-destructive publish readiness report:

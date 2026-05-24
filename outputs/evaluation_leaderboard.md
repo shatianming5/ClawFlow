@@ -4,9 +4,9 @@ This leaderboard is computed from real benchmark task rows.
 
 | Rank | Application | Run ID | Score | Latency | Tool Calls | Trace Events |
 |---:|---|---|---:|---:|---:|---:|
-| 1 | research | `run_0ce8c9a9a19e` | 96.42 | 0.1792 | 4 | 30 |
-| 2 | plugin | `run_750da9ec618e` | 89.1 | 0.1449 | 3 | 24 |
-| 3 | multi-agent | `run_54ebd1ab3ea6` | 85.34 | 0.1081 | 3 | 25 |
-| 4 | safe | `run_9d258dc027cb` | 80.47 | 0.2514 | 2 | 19 |
-| 5 | rag | `run_948edc5f9207` | 73.98 | 0.676 | 3 | 25 |
-| 6 | personal | `run_f1faa22453ed` | 67.0 | 1.0578 | 3 | 24 |
+| 1 | research | `run_1155835fddbe` | 99.04 | 0.0479 | 4 | 30 |
+| 2 | plugin | `run_10adfb3b90f5` | 90.7 | 0.0648 | 3 | 24 |
+| 3 | multi-agent | `run_a0d98079e210` | 86.82 | 0.0341 | 3 | 25 |
+| 4 | safe | `run_c27eb3d11593` | 84.03 | 0.0737 | 2 | 19 |
+| 5 | rag | `run_632d5966a472` | 82.66 | 0.2421 | 3 | 25 |
+| 6 | personal | `run_2206ba8730fb` | 82.1 | 0.2451 | 3 | 24 |

@@ -32,12 +32,13 @@ ClawFlow is a lightweight **Agent Runtime / AgentOS Kernel** prototype for build
 
 CI workflow: `.github/workflows/ci.yml`
 
+GitHub repository: `https://github.com/shatianming5/ClawFlow`
+
 This repository is packaged for GitHub with Apache-2.0 licensing, issue templates, pull request template, CI workflow, Docker deployment, generated screenshots, benchmark artifacts, OpenAPI schema, release archive, publish readiness checker and complete report/PPT deliverables.
 
 ## Why ClawFlow is not just demos
 
-- Example Applications are validation workloads for the framework, not the project body.
-- Every 
+- Example Applications are validat
 
 ## Framework capability mapping
 - Runtime: planner, executor, tool calling, checkpoint, resume.
