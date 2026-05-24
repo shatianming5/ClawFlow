@@ -20,6 +20,7 @@ This repository is packaged for GitHub with Apache-2.0 licensing, issue template
 - Every application goes through the same `AgentRuntime`, Planner, Executor, Tool Registry, Memory Layer, Trace Store, Checkpoint Store and Permission Governance path.
 - Developers can use these applications as templates to build their own agent applications.
 - ClawFlow's core is **Agent Runtime / AgentOS Infrastructure**.
+- It is not a `demo.py` collection: applications are reusable templates that run through the same governed Runtime lifecycle.
 - The implementation uses real state, real SQLite persistence, real JSONL trace, real checkpoint files, real output artifacts and a Web UI that reads persisted data.
 - Local adapters are implemented for email, calendar, search and model planning, with clear extension boundaries for real services.
 
@@ -44,6 +45,7 @@ This repository is packaged for GitHub with Apache-2.0 licensing, issue template
 | Evaluation Leaderboard | Scores applications from real benchmark rows |
 | Failure Recovery Report | Recommends resume/replay/approval actions from checkpoints and failed runs |
 | OpenAPI Export | `scripts/export_openapi.py` writes `docs/openapi.json` and `docs/api_reference.md` from FastAPI |
+| Deliverable Verification | `scripts/verify_deliverables.py` checks files, README, OpenAPI, benchmark, screenshots, applications and tests |
 | Plugin Registry | Manifest-driven plugin tools loaded into Tool Registry |
 | MCP-like Connector | Local email, calendar, search connectors with replaceable interface |
 | RAG Module | Document loader, chunker, keyword retriever, grounded answer |
@@ -74,6 +76,7 @@ clawflow app safe
 clawflow app multi-agent
 clawflow app rag
 clawflow benchmark
+make verify
 clawflow serve
 ```
 
@@ -197,7 +200,7 @@ Latest benchmark summary:
 
 - Total tasks: 6
 - Success rate: 1.0
-- Average latency: 0.2403
+- Average latency: 0.3183
 - Average tool calls: 3
 - Trace events: 147
 
@@ -220,6 +223,17 @@ Latest benchmark summary:
 - `outputs/failure_recovery_report.md`
 
 The leaderboard scores real applications using success, latency, trace richness, tool calls, artifact count and governance signals. The recovery report reads failed/pending runs, approval requests and checkpoint files, then recommends actions such as approval, trace replay or checkpoint inspection.
+
+## Deliverable Verification
+
+Run the local acceptance gate before submitting or pushing:
+
+```bash
+make verify
+python -m scripts.verify_deliverables --with-tests
+```
+
+The verifier checks required source files, community files, README sections, OpenAPI routes, diagrams, screenshots, benchmark outputs, evaluation leaderboard, failure recovery report, technical report, PPT, Runtime-backed applications and the test suite. It writes `outputs/deliverable_verification.json` for audit evidence.
 
 ## Developer Framework
 
@@ -275,6 +289,7 @@ GitHub Actions workflow `.github/workflows/ci.yml` runs on push and pull request
 - run the real benchmark pipeline
 - export OpenAPI schema
 - verify benchmark, evaluation, recovery and API artifacts exist
+- verify deliverable completeness with `scripts.verify_deliverables`
 
 ## Configuration
 

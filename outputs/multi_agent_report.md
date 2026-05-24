@@ -27,7 +27,7 @@ Main gaps to watch: production vector backend, real browser screenshots, and ext
 ## MemoryAgent
 Role: persist useful findings
 
-Persisted collaboration memory id: 426.
+Persisted collaboration memory id: 458.
 
 ## SlideAgent
 Role: extract presentation talking points

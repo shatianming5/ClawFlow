@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "passed": [
+    "files",
+    "readme",
+    "openapi",
+    "benchmark",
+    "applications",
+    "tests",
+    "pytest"
+  ],
+  "pytest": "........................                                                 [100%]\n24 passed in 5.27s"
+}

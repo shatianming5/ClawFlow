@@ -4,6 +4,8 @@ This report is computed from persisted runs, trace events, approval requests and
 
 | Run ID | Status | Checkpoint | Recommended Action | Command |
 |---|---|---|---|---|
+| `run_3f70ac6611b6` | failed | True | replay_and_rerun | `clawflow trace replay run_3f70ac6611b6` |
+| `run_1c86eadc51aa` | pending_approval | True | approve_or_deny | `clawflow approvals approve run_1c86eadc51aa` |
 | `run_d3dc8ddf2096` | failed | True | replay_and_rerun | `clawflow trace replay run_d3dc8ddf2096` |
 | `run_6a5071fb556b` | pending_approval | True | approve_or_deny | `clawflow approvals approve run_6a5071fb556b` |
 | `run_70e7a6b0d95e` | failed | True | replay_and_rerun | `clawflow trace replay run_70e7a6b0d95e` |
